@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :exmon_api, ExmonApi.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "docker",
   database: "exmon_api_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
