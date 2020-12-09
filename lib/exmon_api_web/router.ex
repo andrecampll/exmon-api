@@ -7,6 +7,12 @@ defmodule ExmonApiWeb.Router do
 
   scope "/api", ExmonApiWeb do
     pipe_through :api
+    resources "/trainers", TrainersController, only: [
+      :create,
+      :show,
+      :delete,
+      :update,
+    ]
   end
 
   if Mix.env() in [:dev, :test] do
