@@ -28,6 +28,4 @@ defmodule ExmonApiWeb.TrainersController do
     |> put_status(:no_content)
     |> text("")
   end
-
-  defp handle_delete({:error, _reason} = error, _conn), do: error
 end
