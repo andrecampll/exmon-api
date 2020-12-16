@@ -34,4 +34,10 @@ defmodule ExmonApiWeb.TrainersController do
     |> ExmonApi.read_trainer()
     |> handle_response(conn, "show.json", :ok)
   end
+
+  def update(conn, params) do
+    params
+    |> ExmonApi.update_trainer()
+    |> handle_response(conn, "update.json", :ok)
+  end
 end
