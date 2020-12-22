@@ -1,5 +1,5 @@
 defmodule ExmonApi do
-  alias ExmonApi.Trainer
+  alias ExmonApi.{Trainer, Pokemon}
 
   defdelegate create_trainer(params), to: Trainer.Create, as: :call
 
@@ -9,4 +9,5 @@ defmodule ExmonApi do
 
   defdelegate delete_trainer(params), to: Trainer.Delete, as: :call
 
+  defdelegate read_pokemon(params), to: Pokemon.Read, as: :call
 end
