@@ -13,6 +13,8 @@ defmodule ExmonApiWeb.Router do
       :delete,
       :update,
     ]
+
+    get "/pokemons/:name", PokemonsController, :show
   end
 
   if Mix.env() in [:dev, :test] do

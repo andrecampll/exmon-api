@@ -3,6 +3,8 @@ defmodule ExmonApi.Pokemon do
 
   @enforce_keys @keys
 
+  @derive Jason.Encoder
+
   defstruct @keys
 
   def build(
