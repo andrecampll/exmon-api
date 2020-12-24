@@ -14,6 +14,13 @@ defmodule ExmonApiWeb.Router do
       :update,
     ]
 
+    resources "/trainer-pokemons", TrainerPokemonsController, only: [
+      :create,
+      :show,
+      :delete,
+      :update,
+    ]
+
     get "/pokemons/:name", PokemonsController, :show
   end
 

@@ -1,4 +1,4 @@
-defmodule ExmonApiWeb.TrainerPokemonController do
+defmodule ExmonApiWeb.TrainerPokemonsController do
   use ExmonApiWeb, :controller
 
   action_fallback ExmonApiWeb.FallbackController
@@ -9,10 +9,10 @@ defmodule ExmonApiWeb.TrainerPokemonController do
     |> handle_response(conn, "create.json", :created)
   end
 
-  defp handle_response({:ok, trainer}, conn, view, status) do
+  defp handle_response({:ok, pokemon}, conn, view, status) do
     conn
     |> put_status(status)
-    |> render(view, trainer: trainer)
+    |> render(view, pokemon: pokemon)
   end
 
   defp handle_response({:error, _changeset} = error, _conn, _view, _status), do: error
