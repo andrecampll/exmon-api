@@ -14,5 +14,7 @@ defmodule ExmonApi do
 
   defdelegate create_trainer_pokemon(params), to: TrainerPokemon.Create, as: :call
 
+  defdelegate read_trainer_pokemon(params), to: TrainerPokemon.Read, as: :call
+
   defdelegate delete_trainer_pokemon(params), to: TrainerPokemon.Delete, as: :call
 end
