@@ -54,4 +54,27 @@ defmodule ExmonApiWeb.TrainerPokemonsView do
       }
     }
   end
+
+  def render("update.json", %{pokemon: %Pokemon{
+    id: id,
+    name: name,
+    nickname: nickname,
+    types: types,
+    trainer_id: trainer_id,
+    weight: weight,
+    inserted_at: inserted_at,
+  }}) do
+    %{
+      message: "Pokemon updated!",
+      trainer: %{
+        id: id,
+        name: name,
+        nickname: nickname,
+        types: types,
+        trainer_id: trainer_id,
+        weight: weight,
+        inserted_at: inserted_at
+      }
+    }
+  end
 end
