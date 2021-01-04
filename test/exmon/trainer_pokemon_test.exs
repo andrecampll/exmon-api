@@ -31,5 +31,20 @@ defmodule ExmonApi.TrainerPokemonTest do
         data: %ExmonApi.Trainer.Pokemon{},
       } = response
     end
+
+    test "should not be able to return a valid changeset" do
+      trainer_id = UUID.generate()
+
+      params = %{
+        weight: 80,
+        types: ["Normal"],
+        name: "furret",
+        trainer_id: trainer_id,
+      }
+
+      response = Pokemon.changeset(params)
+
+      assert errors_on(response) == %{nickname: ["can't be blank"]}
+    end
   end
 end
