@@ -74,5 +74,22 @@ defmodule ExmonApi.TrainerPokemonTest do
         },
       } = response
     end
+
+    test "should not be able to return a valid struct" do
+      trainer_id = UUID.generate()
+
+      params = %{
+        weight: 80,
+        types: ["Normal"],
+        name: "furret",
+        trainer_id: trainer_id,
+      }
+
+      {:error, response} = Pokemon.build(params)
+
+      assert %Ecto.Changeset{ valid?: false } = response
+
+      assert errors_on(response) == %{nickname: ["can't be blank"]}
+    end
   end
 end
