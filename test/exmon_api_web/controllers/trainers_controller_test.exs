@@ -23,5 +23,16 @@ defmodule ExmonApiWeb.Controllers.TrainersControllerTest do
           },
         } = response
     end
+
+    test "it should not be able to show a trainer when the id is invalid", %{conn: conn} do
+      response =
+        conn
+        |> get(Routes.trainers_path(conn, :show, "1234"))
+        |> json_response(:bad_request)
+
+      expected_response = %{"message" => "Invalid ID format."}
+
+      assert response == expected_response
+    end
   end
 end
