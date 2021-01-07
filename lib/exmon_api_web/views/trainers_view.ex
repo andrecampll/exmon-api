@@ -3,18 +3,22 @@ defmodule ExmonApiWeb.TrainersView do
 
   alias ExmonApi.Trainer
 
-  def render("create.json", %{trainer: %Trainer{
-    id: id,
-    name: name,
-    inserted_at: inserted_at,
-  }}) do
+  def render("create.json", %{
+    trainer: %Trainer{
+      id: id,
+      name: name,
+      inserted_at: inserted_at,
+    },
+    token: token,
+  }) do
     %{
       message: "Trainer created!",
       trainer: %{
         id: id,
         name: name,
         inserted_at: inserted_at
-      }
+      },
+      token: token,
     }
   end
 
