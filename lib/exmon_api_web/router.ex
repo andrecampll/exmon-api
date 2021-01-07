@@ -21,6 +21,8 @@ defmodule ExmonApiWeb.Router do
       :update,
     ]
 
+    post "/trainers/signin", TrainersController, :sign_in
+
     get "/pokemons/:name", PokemonsController, :show
   end
 
