@@ -1,9 +1,19 @@
 defmodule ExmonApiWeb.Controllers.TrainersControllerTest do
   use ExmonApiWeb.ConnCase
+  import ExmonApiWeb.Auth.Guardian
 
   alias ExmonApi.Trainer
 
   describe "show/2" do
+    setup %{conn: conn} do
+      params = %{name: "John Doe", password: "123123"}
+      {:ok, trainer} = ExmonApi.create_trainer(params)
+      {:ok, token, _claims} = encode_and_sign(trainer)
+
+      conn = put_req_header(conn, "authorization", "Bearer #{token}")
+      {:ok, conn: conn}
+    end
+
     test "it should be able to show a trainer", %{conn: conn} do
       params = %{name: "John Doe", password: "123123"}
 
